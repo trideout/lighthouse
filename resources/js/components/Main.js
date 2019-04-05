@@ -29,7 +29,7 @@ class Main extends Component {
                                      className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4">Create Post</NavLink>
                         </div>
                         <div>
-                            <a href="#"
+                            <a href="https://github.com/trideout/lighthouse"
                                className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0">Download</a>
                         </div>
                     </div>
