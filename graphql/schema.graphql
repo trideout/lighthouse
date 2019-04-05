@@ -1,0 +1,32 @@
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+type Query {
+    users: [User!]! @paginate(type: "paginator" model: "App\\User")
+    user(id: ID @eq): User @find(model: "App\\User")
+    blogs: [Blog!] @paginate(type: "paginator" model: "App\\Blog")
+    blog(id: ID @eq): Blog @find(model: "App\\Blog")
+}
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type Blog {
+    id: ID!
+    title: String!
+    body: String!
+    created_at: DateTime!
+    comments: [Comment!]! @hasMany
+}
+
+type Comment {
+    id: ID!
+    commenter: String!
+    body: String!
+}

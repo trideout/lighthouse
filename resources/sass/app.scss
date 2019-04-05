@@ -1,0 +1,28 @@
+@tailwind preflight;
+@tailwind components;
+@tailwind utilities;
+
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.postObject {
+  @apply border-2 border-blue-light rounded-lg p-4 m-5;
+}
+
+.postObject h3{
+  @apply font-bold;
+}
+
+.postObject p:last-child {
+  @apply float-right text-sm;
+}
+
+.active {
+  background-color: #0099FF;
+}
