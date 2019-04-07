@@ -16,7 +16,7 @@
 }
 
 .postObject h3{
-  @apply font-bold;
+  @apply font-bold m-4;
 }
 
 .postObject p:last-child {
@@ -25,4 +25,8 @@
 
 .active {
   background-color: #0099FF;
+}
+
+.commentObject {
+  @apply border-2 border-black rounded-lg p-4 m-5;
 }

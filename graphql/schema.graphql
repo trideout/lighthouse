@@ -7,6 +7,11 @@ type Query {
     user(id: ID @eq): User @find(model: "App\\User")
     blogs: [Blog!] @paginate(type: "paginator" model: "App\\Blog")
     blog(id: ID @eq): Blog @find(model: "App\\Blog")
+    latestBlog: Blog!
+}
+
+type Mutation {
+    createBlog(title: String! body: String!): Blog! @create
 }
 
 type User {

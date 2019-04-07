@@ -1,10 +1,18 @@
 import React, { Component } from "react";
 import {Route,NavLink,HashRouter} from "react-router-dom";
 import Blogs from "./Blogs";
+import Latest from "./Latest";
+import BlogForm from "./BlogForm";
+import {ApolloProvider} from "react-apollo";
+import ApolloClient from "apollo-boost";
 
 class Main extends Component {
     render() {
+        const client = new ApolloClient({
+            uri: '/graphql'
+        });
         return (
+            <ApolloProvider client={client}>
             <HashRouter>
             <div>
                 <nav className="flex items-center justify-between flex-wrap bg-teal p-6">
@@ -22,7 +30,7 @@ class Main extends Component {
                     </div>
                     <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
                         <div className="text-sm lg:flex-grow">
-                            <NavLink exact to="/" className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4">Home</NavLink>
+                            <NavLink to="/" className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4">Home</NavLink>
                             <NavLink to="/latest"
                                      className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4">Latest</NavLink>
                             <NavLink to="/create"
@@ -35,12 +43,13 @@ class Main extends Component {
                     </div>
                 </nav>
                 <div className="content">
-                    <Route path="/" component={Blogs}/>
-                    <Route path="/latest" component={Blogs}/>
-                    <Route path="/create" component={Blogs}/>
+                    <Route exact path="/" component={Blogs}/>
+                    <Route path="/latest" component={Latest}/>
+                    <Route path="/create" component={BlogForm}/>
                 </div>
             </div>
             </HashRouter>
+            </ApolloProvider>
     );
     }
 }

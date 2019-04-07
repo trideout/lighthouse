@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import {Query} from "react-apollo";
 import gql from 'graphql-tag';
-import {ApolloProvider} from "react-apollo";
-import ApolloClient from "apollo-boost";
 import moment from "moment";
 
 const Post = (props) => (
@@ -15,17 +13,8 @@ const Post = (props) => (
 );
 
 class Blogs extends Component {
-//     <ApolloProvider client={client}>
-//         <div class="container lg ml-auto mr-auto">
-//             <Blogs/>
-//         </div>
-//     </ApolloProvider>
     render(){
-        const client = new ApolloClient({
-            uri: '/graphql'
-        });
         return (
-        <ApolloProvider client={client}>
             <div className="container lg ml-auto mr-auto">
             <Query query={gql`
         {
@@ -51,7 +40,6 @@ class Blogs extends Component {
         }}
         </Query>
             </div>
-        </ApolloProvider>
         );
     }
 }
