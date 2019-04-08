@@ -31,14 +31,19 @@ class BlogForm extends Component {
         });
     }
     handleSubmit(event){
+        console.log(event);
+        this.setState({redirectToLatest:true});
     }
     render() {
         let inputTitle;
         let inputBody;
-
+        if (this.state.redirectToLatest)
+        {
+            return <Redirect to="/latest"/>
+        }
         return (
-            <Mutation mutation={SUBMIT_FORM} onCompleted={this.handleSubmit()}>
-                {(createBlog, {data}) => (
+            <Mutation mutation={SUBMIT_FORM} onCompleted={this.handleSubmit }>
+                {(createBlog, {data, called}) => (
                 <form onSubmit={e=> {e.preventDefault();createBlog({
                     variables: {
                         title: inputTitle.value,
@@ -73,7 +78,7 @@ class BlogForm extends Component {
                         <input type="submit" value="Submit" className="shadow bg-purple hover:bg-purple-light focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"/>
                     </div>
                 </form>
-                    )}
+                )}
             </Mutation>
         );
 

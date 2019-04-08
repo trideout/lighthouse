@@ -12,6 +12,7 @@ type Query {
 
 type Mutation {
     createBlog(title: String! body: String!): Blog! @create
+    createComment(blog_id: ID! commenter: String! body: String!): Comment! @create
 }
 
 type User {

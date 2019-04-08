@@ -4,7 +4,8 @@ import gql from 'graphql-tag';
 import {ApolloProvider} from "react-apollo";
 import ApolloClient from "apollo-boost";
 import moment from "moment";
-import Comment from "./Comment"
+import Comment from "./Comment";
+import CommentForm from "./CommentForm";
 
 const Post = (props) => (
     <div key={props.id} className="postObject">
@@ -45,6 +46,7 @@ class Latest extends Component {
                         return (
                             <div>
                                 <Post id={data.latestBlog.id} title={data.latestBlog.title} body={data.latestBlog.body} created_at={data.latestBlog.created_at} comments={data.latestBlog.comments}/>
+                                <CommentForm blogId={data.latestBlog.id} />
                                 {
                                     data.latestBlog.comments.map((comment) => {
                                         return <Comment id={comment.id} body={comment.body} commenter={comment.commenter}/>;
