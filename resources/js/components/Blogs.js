@@ -3,12 +3,15 @@ import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import {Query} from "react-apollo";
 import gql from 'graphql-tag';
 import moment from "moment";
+import {NavLink} from "react-router-dom";
 
 const Post = (props) => (
     <div key={props.id} className="postObject">
-        <h3>{props.title}</h3>
-        <p>{props.body}</p>
-        <p>{moment(props.created_at).format('MMM Do YYYY, h:mm:ss a')}</p>
+        <NavLink to={`/blog/${props.id}`}>
+            <h3>{props.title}</h3>
+            <p>{props.body}</p>
+            <p>{moment(props.created_at).format('MMM Do YYYY, h:mm:ss a')}</p>
+        </NavLink>
     </div>
 );
 

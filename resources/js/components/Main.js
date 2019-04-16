@@ -5,6 +5,7 @@ import Latest from "./Latest";
 import BlogForm from "./BlogForm";
 import {ApolloProvider} from "react-apollo";
 import ApolloClient from "apollo-boost";
+import Blog from "./Blog";
 
 class Main extends Component {
     render() {
@@ -46,6 +47,7 @@ class Main extends Component {
                     <Route exact path="/" component={Blogs}/>
                     <Route path="/latest" component={Latest}/>
                     <Route path="/create" component={BlogForm}/>
+                    <Route path="/blog/:blogId" component={Blog}/>
                 </div>
             </div>
             </HashRouter>
