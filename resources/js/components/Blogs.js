@@ -18,7 +18,10 @@ class Blogs extends Component {
             <div className="container lg ml-auto mr-auto">
             <Query query={gql`
         {
-            blogs(count:10 page:1){
+            blogs(orderBy:[{
+                field: "created_at"
+                order: DESC
+            }] count:10 page:1){
                 data {
                     id,
                     title,
