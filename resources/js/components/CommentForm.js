@@ -15,7 +15,7 @@ class CommentForm extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {commenter: '', body: ''};
+        this.state = {commenter: '', body: '', reloadPage: false};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -28,13 +28,16 @@ class CommentForm extends Component {
         });
     }
     handleSubmit(event){
-
+        this.setState({reloadPage: true})
     }
     render () {
         let inputCommenter;
         let inputBody;
+        if(this.state.reloadPage){
+            return window.location.reload();
+        }
         return (
-            <Mutation mutation={SUBMIT_COMMENT}>
+            <Mutation mutation={SUBMIT_COMMENT} onCompleted={this.handleSubmit}>
                 {(createComment, {data, called}) => (
                     <form onSubmit={e => {
                         e.preventDefault();
@@ -44,7 +47,7 @@ class CommentForm extends Component {
                                 body: inputBody.value,
                                 commenter: inputCommenter.value
                             }
-                        })
+                        });
                     }} className="w-full max-w-md p-6 m-5">
                         <div className="md:flex md:items-center mb-6">
                             <div className="md:w-1/3">
