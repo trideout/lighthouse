@@ -14,6 +14,15 @@
 .postObject {
   @apply border-2 border-blue-light rounded-lg p-4 m-5;
 }
+.postObject a {
+  color:inherit;
+  text-decoration: none;
+}
+
+.postObject a:visited {
+  color: inherit;
+  text-decoration: none;
+}
 
 .postObject h3{
   @apply font-bold m-4;

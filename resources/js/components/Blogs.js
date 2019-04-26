@@ -37,12 +37,16 @@ class Blogs extends Component {
         >{({loading, error, data}) => {
             if (loading) return '';
             if (error) return <p>Error :(</p>;
-            return data.blogs.data.map(({id, title, body, created_at}) => (
+            return (
                 <ReactCSSTransitionGroup transitionName="example" transitionAppear={true} transitionAppearTimeout={500}
                                          transitionEnter={false} transitionLeave={false}>
-                    <Post id={id} title={title} body={body} created_at={created_at}/>
+                    {
+                        data.blogs.data.map(({id, title, body, created_at}) => (
+                            <Post key={id} id={id} title={title} body={body} created_at={created_at}/>
+                        ))
+                    }
                 </ReactCSSTransitionGroup>
-            ))
+            )
         }}
         </Query>
             </div>

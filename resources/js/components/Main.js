@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Route,NavLink,HashRouter} from "react-router-dom";
+import {Route,NavLink,BrowserRouter} from "react-router-dom";
 import Blogs from "./Blogs";
 import Latest from "./Latest";
 import BlogForm from "./BlogForm";
@@ -14,7 +14,7 @@ class Main extends Component {
         });
         return (
             <ApolloProvider client={client}>
-            <HashRouter>
+            <BrowserRouter>
             <div>
                 <nav className="flex items-center justify-between flex-wrap bg-teal p-6">
                     <div className="flex items-center flex-no-shrink text-white mr-6">
@@ -50,7 +50,7 @@ class Main extends Component {
                     <Route path="/blog/:blogId" component={Blog}/>
                 </div>
             </div>
-            </HashRouter>
+            </BrowserRouter>
             </ApolloProvider>
     );
     }

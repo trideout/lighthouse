@@ -38,7 +38,6 @@ class Blog extends Component {
             <Query query={GET_BLOG_ENTRY} variables={{ blogId: this.props.match.params.blogId }} >{({loading, error, data}) => {
             if (loading) return '';
             if (error) return <p>Error :(</p>;
-                console.log(data);
             return (
                 <ReactCSSTransitionGroup transitionName="example" transitionAppear={true} transitionAppearTimeout={500}
                                          transitionEnter={false} transitionLeave={false}>
