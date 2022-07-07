@@ -35,7 +35,7 @@
         "apollo-boost": "^0.3.1",
         "glob-all": "^3.1.0",
         "graphql": "^14.1.1",
-        "moment": "^2.24.0",
+        "moment": "^2.29.4",
         "postcss-discard-comments": "^4.0.2",
         "purgecss-webpack-plugin": "^1.4.0",
         "react-addons-css-transition-group": "^15.6.2",
